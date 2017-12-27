@@ -5,7 +5,14 @@ class WoodWorkbench(Workbench):
         self.__class__.ToolTip = 'Wood Workbench'
 
     def Initialize(self):
-        pass
+        import dovetail
+        self.appendToolbar('Wood Tools', ['dovetail_command'])
+        self.appendMenu("Wood Tools", ['dovetail_command'])
+        Log('Loading WoodWorkbench... done\n')
+        Log(dir(FreeCAD))
+
+    def GetClassName(self):
+        return "Gui::PythonWorkbench"
 
 
 Gui.addWorkbench(WoodWorkbench())
